@@ -1,5 +1,6 @@
 import React from 'react'
 import Relay from 'react-relay'
+import { Link } from 'react-router';
 
 class PostPreview extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class PostPreview extends React.Component {
         {post.body_content.map(({__dataID__, data, kind}) => (
           <div key={__dataID__}
             className="TextRegion" >
+            <Link to={`/posts/${post.id}`}>Link</Link>
             <div className="RegionContent"
                  dangerouslySetInnerHTML={{ __html: data }} />
           </div>

@@ -3,19 +3,34 @@ import 'babel-polyfill';
 import css from './styles/main.scss';
 
 import App from './components/App';
-import AppHomeRoute from './routes/AppHomeRoute';
+import Post from './components/Post';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { RelayRouter } from 'react-router-relay';
+import { Route, browserHistory } from 'react-router';
 import Relay from 'react-relay';
 
+const ViewerQueries = {
+  root: () => Relay.QL`query { root }`,
+};
+
+const PostQueries = {
+  post: () => Relay.QL`
+    query {
+      post(id: $postId)
+    }
+  `,
+};
 ReactDOM.render(
-  <Relay.RootContainer
-    Component={App}
-    route={new AppHomeRoute()}
-    renderLoading={function () {
-      return <div className="loader">
-        <span className="fa fa-spin fa-spinner"></span>
-        </div>;
-  }} />,
+  <RelayRouter history={browserHistory}>
+    <Route
+       path="/" component={App}
+       queries={ViewerQueries}
+       />
+    <Route
+       path="posts/:postId" component={Post}
+       queries={PostQueries}
+       />
+  </RelayRouter>,
   document.getElementById('root')
 );
