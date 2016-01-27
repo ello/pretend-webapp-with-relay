@@ -12,7 +12,7 @@
 
 @mixin heading {
   @include sans-bold-family;
-  font-size: rem(24);
+  font-size: 24rem;
   line-height: 1.35;
   color: $black;
   text-rendering: optimizeLegibility;
