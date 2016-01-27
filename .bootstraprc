@@ -1,0 +1,22 @@
+---
+# You can use comments here
+bootstrapVersion: 4
+
+env:
+  development:
+    extractStyles: false
+  production:
+    extractStyles: true
+
+useFlexbox: true
+
+styleLoaders:
+  - style
+  - css
+  - sass
+
+styles: true
+
+scripts:
+  alert: true
+  button: true

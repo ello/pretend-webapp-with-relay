@@ -5,7 +5,7 @@ import WebpackDevServer from 'webpack-dev-server';
 import {Schema} from './data/schema';
 
 const APP_PORT = 4000;
-const GRAPHQL_PORT = 3000;
+const GRAPHQL_PORT = 3500;
 
 // Serve the Relay app
 var compiler = webpack({
