@@ -8,6 +8,8 @@ env:
   production:
     extractStyles: true
 
+preBootstrapCustomizations: ./js/styles/bootstrap-pre-customizations.scss
+
 useFlexbox: true
 
 styleLoaders:
@@ -15,7 +17,8 @@ styleLoaders:
   - css
   - sass
 
-styles: true
+styles:
+  print: true
 
 scripts:
   alert: true

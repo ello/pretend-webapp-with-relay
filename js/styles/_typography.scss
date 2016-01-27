@@ -1,0 +1,24 @@
+@mixin sans-family {
+  font-family: 'AtlasGroteskRegular', 'AtlasGrotesk-Regular', 'Helvetica Neue', 'HelveticaNeue', 'Helvetica', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin sans-bold-family {
+  font-family: 'AtlasGroteskBold', 'AtlasGrotesk-Bold', 'Helvetica Neue', 'HelveticaNeue', 'Helvetica', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin heading {
+  @include sans-bold-family;
+  font-size: rem(24);
+  line-height: 1.35;
+  color: $black;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include sans-bold-family;
+  margin: 0;
+}

@@ -7,20 +7,25 @@ class PostPreview extends React.Component {
   }
 
   render() {
-    var {post} = this.props;
+    const { post, post: { author } } = this.props;
     return (
-      <div className="post-preview">
-        <a href="#">
-          <h2 className="post-title">
-            { post.body }
-          </h2>
-          <div className="post-body" dangerouslySetInnerHTML={{__html: post.excerpt }} />
-        </a>
-        <p className="post-meta">
-          <span className="author">
-            Posted by: <em>{ post.author.name }</em>
-          </span>
-        </p>
+      <div className="Post">
+        <header className="PostHeader" key={`PostHeader_${post.id}`}>
+          <div className="PostHeaderAuthor">
+            <a className="PostHeaderLink" to={`/${author.name}`}>
+              <span>{`@${author.username}`}</span>
+            </a>
+          </div>
+        </header>
+        <div className="TextRegion">
+        {post.body_content.map(({__dataID__, data, kind}) => (
+          <div key={__dataID__}
+            className="TextRegion" >
+            <div className="RegionContent"
+                 dangerouslySetInnerHTML={{ __html: data }} />
+          </div>
+        ))}
+        </div>
       </div>
     )
   }
@@ -37,8 +42,10 @@ export default Relay.createContainer(PostPreview, {
         id,
         body,
         created_at,
+        content
+        body_content { data kind }
         author {
-          name
+          username
         }
       }
     `

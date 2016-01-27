@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 
-import css from './app.scss';
+import css from './styles/main.scss';
 
 import App from './components/App';
 import AppHomeRoute from './routes/AppHomeRoute';

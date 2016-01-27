@@ -10,14 +10,10 @@ class App extends React.Component {
   render() {
     const {root} = this.props;
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            {root.posts.edges.map(({node}) => (
-              <PostPreview key={node.id} post={node} root={root} />
-            ))}
-          </div>
-        </div>
+      <div className="Posts">
+        {root.posts.edges.map(({node}) => (
+            <PostPreview key={node.id} post={node} root={root} />
+        ))}
       </div>
     );
   }
