@@ -1,36 +1,25 @@
 @import 'colors';
 @import 'typography';
 
-$html-fontface: 'AtlasGroteskRegular', 'AtlasGrotesk-Regular', 'Helvetica Neue', 'HelveticaNeue', 'Helvetica', sans-serif;
-
 html {
   font: normal 400 100% / 1.5 $html-fontface;
   text-size-adjust: 100%;
 }
 
 body {
-  position: relative;
-  overflow-x: hidden;
-  margin: 0;
   background-color: $white;
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
 }
 
 :global(.main) {
   display: block;
+
   ::selection {
-    background: black;
-    color: white;
+    background: $black;
+    color: $white;
     text-shadow: none;
   }
 }
 
-.Posts {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 100vh;
-}
-
-.Post {
-  width: 33.3%;
-}

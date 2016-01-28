@@ -2,7 +2,7 @@ import 'babel-polyfill';
 
 import css from './styles/main.scss';
 
-import App from './components/App';
+import Posts from './components/Posts';
 import Post from './components/Post';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -24,7 +24,7 @@ const PostQueries = {
 ReactDOM.render(
   <RelayRouter history={browserHistory}>
     <Route
-       path="/" component={App}
+       path="/" component={Posts}
        queries={ViewerQueries}
        />
     <Route

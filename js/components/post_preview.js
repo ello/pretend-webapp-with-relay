@@ -2,7 +2,7 @@ import React from 'react'
 import Relay from 'react-relay'
 import { Link } from 'react-router';
 
-import css from '../styles/main.scss';
+import css from './Post.scss';
 
 class PostPreview extends React.Component {
   constructor(props) {
