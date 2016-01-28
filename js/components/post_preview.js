@@ -2,6 +2,8 @@ import React from 'react'
 import Relay from 'react-relay'
 import { Link } from 'react-router';
 
+import css from '../styles/main.scss';
+
 class PostPreview extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +12,7 @@ class PostPreview extends React.Component {
   render() {
     const { post, post: { author } } = this.props;
     return (
-      <div className="Post">
+      <div className={css.Post}>
         <header className="PostHeader" key={`PostHeader_${post.id}`}>
           <div className="PostHeaderAuthor">
             <a className="PostHeaderLink" to={`/${author.name}`}>

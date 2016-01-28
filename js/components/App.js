@@ -2,6 +2,8 @@ import React from 'react';
 import Relay from 'react-relay';
 import PostPreview from './post_preview';
 
+import css from '../styles/main.scss';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +12,7 @@ class App extends React.Component {
   render() {
     const {root} = this.props;
     return (
-      <div className="Posts">
+      <div className={css.Posts}>
         {root.posts.edges.map(({node}) => (
             <PostPreview key={node.id} post={node} root={root} />
         ))}

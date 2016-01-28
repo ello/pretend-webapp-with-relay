@@ -10,7 +10,15 @@ class Post extends React.Component {
     const { post } = this.props;
 
     return (
-        <div>{post.body}</div>
+      <div>
+        {post.body_content.map(({__dataID__, data, kind}) => (
+          <div key={__dataID__}
+               className="TextRegion" >
+            <div className="RegionContent"
+                 dangerouslySetInnerHTML={{ __html: data }} />
+          </div>
+        ))}
+      </div>
     );
   }
 }
@@ -20,7 +28,10 @@ export default Relay.createContainer(Post, {
     post: () => Relay.QL`
       fragment on Post {
         id,
-        body
+        body_content {
+          kind
+          data
+        }
       }
     `,
   },

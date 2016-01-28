@@ -15,7 +15,7 @@ body {
   background-color: $white;
 }
 
-.main {
+:global(.main) {
   display: block;
   ::selection {
     background: black;
