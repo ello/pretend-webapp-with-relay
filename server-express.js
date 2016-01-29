@@ -13,7 +13,7 @@ const server = new WebpackDevServer(webpack(config), {
   publicPath: '/js/',
   hot: true,
   historyApiFallback: true,
-  proxy: { '/graphql': `http://localhost:${GRAPHQL_PORT}` },
+  proxy: { '/graphql': `http://localhost:${GRAPHQL_PORT}`, '/knock/*': `http://localhost:${GRAPHQL_PORT}` },
   stats: {
     colors: true,
     hash: false,
