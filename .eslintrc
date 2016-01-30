@@ -23,6 +23,10 @@ rules:
   ### Stylistic issues
   indent: [1, 2, { SwitchCase: 1, VariableDeclarator: 2 }]
   id-length: [1, { min: 2, exceptions: [_, e, i, k, v] }]
+  object-curly-spacing: [2, "never", {
+    objectsInObjects: true,
+    arraysInObjects: true
+  }]
   space-before-function-paren: [1, "never"]
 
 
@@ -30,6 +34,7 @@ rules:
   jsx-quotes: [1, prefer-double]
   react/display-name: 0
   react/jsx-boolean-value: [1, always]
+  react/jsx-closing-bracket-location: [1, 'after-props']
   react/jsx-curly-spacing: [1, never]
   react/jsx-no-duplicate-props: [2, { ignoreCase: true }]
   react/jsx-no-undef: 2

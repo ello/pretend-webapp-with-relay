@@ -1,10 +1,14 @@
 import React from 'react';
 import Relay from 'react-relay';
-import PostPreview from './post_preview';
+import PostPreview from './PostPreview';
 
 import css from './Posts.scss';
 
 class App extends React.Component {
+  static propTypes = {
+    root: React.PropTypes.object.isRequired,
+  };
+
   constructor(props) {
     super(props);
   }
@@ -24,7 +28,7 @@ class App extends React.Component {
 export default Relay.createContainer(App, {
   initialVariables: {
     count: 20,
-    order: "-id"
+    order: '-id',
   },
   fragments: {
     root: () => Relay.QL`
@@ -42,6 +46,6 @@ export default Relay.createContainer(App, {
           }
         }
       }
-    `
+    `,
   },
 });

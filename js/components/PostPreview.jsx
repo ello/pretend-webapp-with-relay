@@ -14,7 +14,7 @@ class PostPreview extends React.Component {
   }
 
   render() {
-    const {post, post: {author}} = this.props;
+    const {post, post: {author} } = this.props;
     return (
       <div className={css.Post}>
         <header className={css.PostHeader} key={`PostHeader_${post.id}`}>
@@ -44,7 +44,7 @@ class PostPreview extends React.Component {
 
 export default Relay.createContainer(PostPreview, {
   initialVariables: {
-    count: 1000
+    count: 1000,
   },
 
   fragments: {

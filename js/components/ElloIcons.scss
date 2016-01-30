@@ -1,0 +1,14 @@
+@import '../styles/colors';
+@import '../styles/lib';
+
+.ElloMark,
+.ElloDonutMark,
+.ElloRainbowMark {
+  border-radius: rem(40);
+  display: inline-block;
+  overflow: hidden;
+}
+
+.ElloRainbowMark path {
+  fill: $white;
+}

@@ -21,28 +21,6 @@ export default React.createClass({
     event.preventDefault();
     const { username, password } = this.state;
 
-    fetch('/knock/auth_token', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({auth: {username, password}})
-    }).then(response => response.json())
-      .then(json => {
-        console.log(json);
-
-        localStorage.setItem('ello.jwt', json.jwt);
-        Relay.injectNetworkLayer(networkLayer({
-          headers: `Bearer ${json.jwt}`
-        }));
-        let location = window.location;
-        var { protocol, hostname, port, pathname } = location;
-        let locationString = `${protocol}//${hostname}:${port}/`;
-        debugger;
-        document.location.assign(locationString);
-
-      }).catch(err => console.log(err));
   },
 
   render() {

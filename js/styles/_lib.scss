@@ -1,4 +1,10 @@
+$context-px: 16 !default;
+
 @mixin hidden {
   display: none !important;
   visibility: hidden;
+}
+
+@function rem($px, $context:$context-px) {
+  @return ($px / $context) * 1em;
 }

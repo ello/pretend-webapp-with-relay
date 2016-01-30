@@ -13,7 +13,7 @@ module.exports = {
       'jquery',
     ],
     app: [
-      path.resolve(__dirname, 'js', 'app.js'),
+      path.resolve(__dirname, 'js', 'app.jsx'),
     ],
   },
   resolve: {

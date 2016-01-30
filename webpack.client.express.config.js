@@ -26,7 +26,7 @@ config.devtool = 'eval-source-map';
 
 config.module.loaders.push(
   {
-    test: /\.js$/,
+    test: /\.jsx?$/,
     loader: 'babel',
     exclude: /node_modules/,
     query: {

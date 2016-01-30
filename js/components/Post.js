@@ -7,15 +7,17 @@ class Post extends React.Component {
   }
 
   render() {
-    const { post } = this.props;
+    const {post} = this.props;
 
     return (
       <div>
-        {post.body_content.map(({__dataID__, data, kind}) => (
-          <div key={__dataID__}
-               className="TextRegion" >
-            <div className="RegionContent"
-                 dangerouslySetInnerHTML={{ __html: data }} />
+        {post.body.map(({__dataID__, data, kind}) => (
+          <div
+            key={__dataID__}
+            className="TextRegion" >
+            <div
+              className="RegionContent"
+              dangerouslySetInnerHTML={{__html: data}} />
           </div>
         ))}
       </div>
@@ -23,12 +25,16 @@ class Post extends React.Component {
   }
 }
 
+Post.propTypes = {
+  post: React.PropTypes.object.isRequired,
+};
+
 export default Relay.createContainer(Post, {
   fragments: {
     post: () => Relay.QL`
       fragment on Post {
         id,
-        body_content {
+        body {
           kind
           data
         }

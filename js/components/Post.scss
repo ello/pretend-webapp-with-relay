@@ -1,3 +1,32 @@
+@import '../styles/typography';
+
 .Post {
   width: 33.3%;
+}
+
+.PostHeader {
+  @include monospace;
+  height: rem(60);
+  position: relative;
+}
+
+.PostHeaderAuthor {
+  line-height: rem(60);
+  padding-left: rem(40);
+}
+
+.PostHeaderLink {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.TextRegion {
+  max-width: rem(780);
+}
+
+.RegionContent {
+  transform-origin: 0 0;
+  transition: background-color $speed2, transform $speed, margin-bottom $speed;
 }
