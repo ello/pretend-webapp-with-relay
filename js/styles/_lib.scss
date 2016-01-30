@@ -8,3 +8,7 @@ $context-px: 16 !default;
 @function rem($px, $context:$context-px) {
   @return ($px / $context) * 1em;
 }
+
+@function em($px, $context:$context-px) {
+  @return ($px / $context) * 1em;
+}

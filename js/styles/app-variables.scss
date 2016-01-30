@@ -1,3 +1,22 @@
+@import 'lib';
+
 $font-size-h2: '18px';
 $speed: .2s;
 $speed2: $speed * 2;
+
+$z-popover: 1020;
+$z-footer: 1030;
+$z-navbar: 1040;
+$z-modal: 1070;
+$z-grid: 3000;
+
+$break-2: em(640);
+$break-3: em(960);
+$break-4: em(1360);
+$break-5: em(1720);
+$break-6: em(2080);
+$break-7: em(2440);
+
+$break-2-max: em(639);
+$break-3-max: em(959);
+$break-4-max: em(1359);

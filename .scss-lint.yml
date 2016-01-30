@@ -1,3 +1,5 @@
 linters:
   SelectorFormat:
     enabled: false
+  PropertySortOrder:
+    order: smacss

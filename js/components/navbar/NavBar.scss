@@ -1,0 +1,39 @@
+@import 'colors';
+@import 'lib';
+
+.Navbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: rem(10);
+  transition: transform 150ms ease, visibility 150ms, background-color 150ms ease, height 150ms ease;
+  background-color: $white;
+  z-index: $z-navbar;
+}
+
+.isLoggedIn .NavbarMark {
+  display: none;
+}
+
+@media(min-width: #{$break-2}) {
+  .Navbar {
+    padding: rem(20);
+  }
+
+  .isLoggedIn .NavbarMark {
+    display: inline-block;
+  }
+}
+
+.NavbarMark {
+  transform: scale(.75);
+  transform-origin: top-left;
+}
+
+@media(min-width: #{$break-2}) {
+  .NavbarMark {
+    transform: none;
+    transform-origin: center center;
+  }
+}
