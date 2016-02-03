@@ -15,7 +15,7 @@ function beginLogin() {
 function loginSuccess(json) {
   return {
     type: LOGIN_SUCCESS,
-    token: json.jwt,
+    token: json,
   };
 }
 
@@ -25,13 +25,14 @@ export function readToken() {
   if (token) {
     return {type: SET_TOKEN, token};
   }
+  return {type: NO_TOKEN}
 }
 
 export function init() {
-  return readToken();
+  return async dispatch => dispatch(readToken());
 }
 
-export const logIn = async (username, password) =>
+export const logIn = (username, password) =>
   async dispatch => {
     dispatch(beginLogin());
 
@@ -44,7 +45,9 @@ export const logIn = async (username, password) =>
       body: JSON.stringify({auth: {username, password} }),
     });
 
-    const {jwt: token} = response.json();
+    const json = await response.json();
+    console.log(json);
+    const {jwt: token} = json;
 
     localStorage.setItem('ello.jwt', token);
     Relay.injectNetworkLayer(networkLayer({

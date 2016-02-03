@@ -8,7 +8,7 @@ config.entry.vendor.push('bootstrap-loader');
 
 config.entry.app.push(
   `webpack-dev-server/client?http://localhost:${hotPort}`,
-  'webpack/hot/dev-server'
+  'webpack-hot-middleware/client'
 );
 
 config.output = {filename: '[name]-bundle.js', path: '/'}

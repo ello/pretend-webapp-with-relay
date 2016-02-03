@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import LoggedInNavBar from 'components/navbar/LoggedInNavBar';
 
+import style from './Home.scss';
+
 export class Home extends Component {
   constructor(props) {
     super(props);
@@ -16,10 +18,12 @@ export class Home extends Component {
     return (
       <div>
         <LoggedInNavBar />
-        <Link to="/auth">Sign in</Link>
-        <h2>Oh hai</h2>
-        <div className="yep">
-          {this.props.children}
+        <div className={style.Main}>
+          <Link to="/auth">Sign in</Link>
+          <h2>Oh hai</h2>
+          <div>
+            {this.props.children}
+          </div>
         </div>
       </div>
     );

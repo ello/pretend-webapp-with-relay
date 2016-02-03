@@ -8,7 +8,8 @@ const path = require('path');
 
 const GRAPHQL_PORT = 3500;
 
-const server = new WebpackDevServer(webpack(config), {
+const compiler = webpack(config);
+const server = new WebpackDevServer(compiler, {
   contentBase: '/public/',
   publicPath: '/js/',
   hot: true,
@@ -29,6 +30,7 @@ const server = new WebpackDevServer(webpack(config), {
 server.app.use(bodyParser.json(null));
 server.app.use(bodyParser.urlencoded({ extended: true }));
 
+server.app.use(require('webpack-hot-middleware')(compiler));
 server.app.use('/', express.static(path.resolve(__dirname, 'public')));
 server.listen(4000, 'localhost', function (err) {
   if (err) console.log(err);

@@ -10,7 +10,6 @@ const bundleInits = req
       .filter(bundleInit => !!bundleInit);
 
 export default function init() {
-  return async (dispatch) => Promise.all(
-    bundleInits.map(bundleInit => dispatch(bundleInit()))
-  );
+  return (dispatch) =>
+    bundleInits.map(bundleInit => dispatch(bundleInit()));
 }
