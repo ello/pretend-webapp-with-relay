@@ -22,10 +22,7 @@ function loginSuccess(json) {
 export function readToken() {
   const token = localStorage.getItem('ello.jwt');
 
-  if (token) {
-    return {type: SET_TOKEN, token};
-  }
-  return {type: NO_TOKEN}
+  return {type: SET_TOKEN, token};
 }
 
 export function init() {
