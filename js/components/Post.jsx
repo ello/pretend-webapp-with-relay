@@ -20,6 +20,12 @@ class Post extends React.Component {
               dangerouslySetInnerHTML={{__html: data}} />
           </div>
         ))}
+        <div>
+          Comments
+          <div>
+            {post.comments}
+          </div>
+        </div>
       </div>
     );
   }

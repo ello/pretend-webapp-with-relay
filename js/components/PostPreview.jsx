@@ -1,6 +1,7 @@
 import React from 'react';
 import Relay from 'react-relay';
 import {Link} from 'react-router';
+import Comment from './Comment';
 
 import css from './Post.scss';
 
@@ -19,7 +20,7 @@ class PostPreview extends React.Component {
       <div className={css.Post}>
         <header className={css.PostHeader} key={`PostHeader_${post.id}`}>
           <div className={css.PostHeaderAuthor}>
-            <a className={css.PostHeaderLink} to={`/${author.name}`}>
+            <a className={css.PostHeaderLink} to={`/${author.username}`}>
               <span>{`@${author.username}`}</span>
             </a>
           </div>
@@ -32,10 +33,14 @@ class PostPreview extends React.Component {
                 className="TextRegion" >
                 <div
                   className="RegionContent"
-                  dangerouslySetInnerHTML={{__html: data}} />
+                  dangerouslySetInnerHTML={{__html: data}}>
+                </div>
               </div>
             ))}
           </div>
+          {post.comments.edges.map(({node}) => (
+            <Comment key={node.id} comment={node} />
+          ))}
         </div>
       </div>
     );
@@ -45,6 +50,8 @@ class PostPreview extends React.Component {
 export default Relay.createContainer(PostPreview, {
   initialVariables: {
     count: 1000,
+    commentsCount: 20,
+    commentsOrder: 'id',
   },
 
   fragments: {
@@ -53,11 +60,18 @@ export default Relay.createContainer(PostPreview, {
         id,
         body { data, kind }
         created_at,
-        content
+        comments(first: $commentsCount, order: $commentsOrder) {
+          edges {
+            node {
+              id,
+              ${Comment.getFragment('comment')}
+            }
+          }
+        }
         author {
           username
         }
       }
-    `
-  }
+    `,
+  },
 });
